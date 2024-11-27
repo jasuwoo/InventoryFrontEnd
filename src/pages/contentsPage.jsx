@@ -4,7 +4,8 @@ import { Input } from "@/components/ui/Input";
 import { useMutation } from "react-query";
 import ContentComponent from "../components/content-component";
 import { getContentAPI, postContentAPI } from "../API/contentAPI";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react"
+import reloader from "react"
 import {
     Dialog,
     DialogContent,
@@ -15,6 +16,7 @@ import {
 } from "@/components/ui/dialog"
 
 export default function ContentsPage() {
+    const [reloader, setReloader] = useState(false)
     const [open, setOpen] = useState(false);
     const contentnameref = useRef(null);
     const contentstatusref = useRef(null);
@@ -28,6 +30,15 @@ export default function ContentsPage() {
 
     console.log(contents);
 
+    // useEffect(() => {
+    //     getContentAPI()
+    //     .then(res =>{
+    //         if(res.ok){
+    //             postContentAPI(res.data)
+    //         }
+    //     })
+    // }, [reloader])
+    
     const addContentMutation = useMutation({
         mutationFn: postContentAPI,
         onSuccess: (data) => {  
@@ -48,8 +59,7 @@ export default function ContentsPage() {
     }
     return (
         <main className="flex-1 min-h-o p-5">
-            <header className="bg-blue-400 p-2 ">
-            </header>
+          
             <section className="flex flex-col gap-3 ">
                 <table className="table-auto">
                     <thead>
