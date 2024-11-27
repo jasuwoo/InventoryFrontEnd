@@ -1,8 +1,8 @@
-function App() {
+function app() {
 
-    return (
-      <h1>Home</h1>
-    )
-  }
-  
-  export default App
+  return (
+    <h1>System Units</h1>
+  )
+}
+
+export default app

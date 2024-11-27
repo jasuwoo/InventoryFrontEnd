@@ -1,4 +1,5 @@
-import * as React from "react"
+  import * as React from "react"
+import { RouterProvider, useNavigate } from "react-router-dom"
 import { Archive, Banana, BananaIcon,  } from "lucide-react"
 
 import {
@@ -21,23 +22,27 @@ const data = {
       title: "Storage",
       items: [
         {
-          title:"Home",
-          url: "/home",
-          Icon: BananaIcon,
+          title: 'Home',
+          url: '/',
           isActive: true,
         },
         {
-          title: "System Units",
-          url: "/system-units",
+          title:"Contents",
+          url: "/contents",
+          Icon: BananaIcon,
+          isActive: true,
         },
+      ],
+    },
+    {
+      title: "Admin Panel",
+      url: '/cpanel',
+      items: [
         {
-          title:"Tools",
-          url: "/tools", 
+          title:"Storage",
+          url: "/storage",
+          isActive: true,
         },
-        {
-          title:"Computer Parts",
-          url:"/computer-parts  ",
-        }
       ],
     },
   ],
@@ -46,6 +51,7 @@ const data = {
 export function AppSidebar({
   ...props
 }) {
+  const navigate = useNavigate()
   return (
     (<Sidebar variant="floating" {...props}>
       <SidebarHeader>
@@ -57,7 +63,10 @@ export function AppSidebar({
                   className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                  <Banana className="size-9"/>
                 </div>
-                <div className="flex flex-col gap-0.5 leading-none">
+                <div className="flex flex-col gap-0.5 leading-none" 
+                onClick={() => {
+                  navigate('/');
+                }}>
                   <span className="font-semibold">OnlyParts</span>
                   <span className="">Inventory System</span>
                 </div>
