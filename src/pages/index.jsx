@@ -14,12 +14,12 @@ import {
 } from "@/components/ui/table"
 export default function HomePage() {
   return (
-    <main className="flex w-screen h-screen ">
-      <aside className="w-screen m h-screen flex flex-col ">
-        <header className="bg-blue-400 border-b-2 p-2 ">
+    <main className="flex w-full h-screen ">
+      <aside className="w-full m h-screen flex flex-col ">
+        <header className="bg-blue-400 border-b-2  ">
         </header>
         <section>
-          <div className="text-center">
+          <div className="text-center ">
             <h1>Only Parts Storage Unit</h1>
             <h3>Where you can store parts safely</h3>
           </div>

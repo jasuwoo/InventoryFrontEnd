@@ -18,11 +18,15 @@ function App() {
   return (
 
     <SidebarProvider>
-      <AppSidebar />
-      <header className="bg-blue-400 p-1 ">
-        <SidebarTrigger />
-      </header>
-      <Outlet />
+      <main className="flex w-screen h-screen">
+        <AppSidebar className="h-screen bg-blue-400"/>
+        <aside className="w-full">
+          <header className="bg-blue-400 p-1 ">
+            <SidebarTrigger />
+          </header>
+          <Outlet />
+        </aside>
+      </main>
     </SidebarProvider>
 
   )

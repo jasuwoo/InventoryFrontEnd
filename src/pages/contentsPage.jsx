@@ -3,7 +3,7 @@ import { QueryClient, useQuery, useQueryClient } from "react-query";
 import { Input } from "@/components/ui/Input";
 import { useMutation } from "react-query";
 import ContentComponent from "../components/content-component";
-import { getContentAPI, postContentAPI } from "../API/contentAPI";
+import { getContentAPI, postContentAPI, patchContentAPI } from "../API/contentAPI";
 import { useEffect, useRef, useState } from "react"
 import reloader from "react"
 import {
@@ -57,6 +57,24 @@ export default function ContentsPage() {
         console.log('submit btn', formData);
         addContentMutation.mutate(formData);
     }
+    // const updateContentsMutation = useMutation({
+    //     mutationFn: patchContentAPI,
+    //     onSuccess: (data) => {  
+    //         console.log(data)
+    //         setOpen(false)
+    //         QueryClient.invalidateQueries(['contents'])
+    //     }
+    // });
+    // const patchHandle = () => {
+    //     const formData = new FormData();
+    //     formData.append('name', contentnameref.current.value);
+    //     formData.append('status', contentstatusref.current.value);
+    //     formData.append('missing_parts', contentmissingpartsref.current.value);
+    //     formData.append('defective_parts', contentdefectivepartsref.current.value);
+    //     console.log('submit btn', formData);
+    //     addContentMutation.mutate(formData);
+    // }
+
     return (
         <main className="flex-1 min-h-o p-5">
           
@@ -78,14 +96,14 @@ export default function ContentsPage() {
                             <td>{item.missing_parts}</td>
                             <td>{item.defective_parts}</td>
                             <td className="flex gap-3">
-                                <Button>Edit</Button>
-                                <Button>Delete</Button>
+                                <Button onClick={() => setOpen(true)}>Edit</Button>
+                                <Button className="">Delete</Button>
                             </td>
                         </tr>
                         ))}
                     </tbody>
                 </table>
-
+                        <section></section>
             </section>
             <Dialog open={open} onOpenChange={setOpen}>
                 <DialogContent>

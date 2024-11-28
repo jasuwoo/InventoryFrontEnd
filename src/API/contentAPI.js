@@ -23,11 +23,11 @@ export const getContentAPI = async () => {
     return res;
 };
 
-// export const patchContentAPI = async (updateData) =>{
-//     const response = await fetch(`${baseURL}/api/contents/` , {
-//         method: 'PATCH',
-//         body: updateData
-//     })
-//     const res = await response.json();
-//     return res
-// }
+    export const patchContentAPI = async (updateData) =>{
+     const response = await fetch(`${baseURL}/api/contents/` , {
+        method: 'PATCH',
+         body: updateData
+     })
+    const res = await response.json();
+     return res
+ }
